@@ -12,5 +12,5 @@ urlpatterns = [
     path('v1/token/refresh/',
          TokenRefreshView.as_view(), name='token_refresh'),
     path('v1/schedule/professor/', ProfessorView.as_view(), name='professor'),
-    path('v1/schedule/', LessonView.as_view(), name='schedule'),
+    path('v1/schedule/<int:even_week>/<str:group_name>/', LessonView.as_view(), name='schedule'),
 ]
