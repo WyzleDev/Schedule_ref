@@ -26,6 +26,7 @@ class exactProfessorViewSet(APIView):
         return Response(serializer.data)
 
 
+@permission_classes([AllowAny])
 class ProfessorsViewSet(APIView):
     def get(self, request):
         professors = Professor.objects.all()
