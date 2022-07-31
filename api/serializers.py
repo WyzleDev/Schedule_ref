@@ -1,9 +1,9 @@
-from importlib.resources import read_binary
-from tabnanny import verbose
-from rest_framework.validators import UniqueValidator
+from pyexpat import model
 from rest_framework import serializers
+from news.models.tag import Tag
 
 from schedule.models import Lesson, Professor
+from news.models import Post
 
 
 class LessonSerializer(serializers.ModelSerializer):
@@ -71,3 +71,30 @@ class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         exclude = ['id']
+
+
+class TagSerializer(serializers.ModelSerializer):
+    name = serializers.StringRelatedField(
+        read_only=True
+    )
+
+    class Meta:
+        model = Tag
+        exclude = ['id', 'created', 'updared']
+
+
+class NewsSerializer(serializers.ModelSerializer):
+    title = serializers.StringRelatedField(
+        read_only=True
+    )
+    tags = TagSerializer(read_only=True, many=True)
+    text = serializers.StringRelatedField(
+        read_only=True,
+    )
+    link_to_source = serializers.StringRelatedField(
+        read_only=True,
+    )
+
+    class Meta:
+        model = Post
+        exclude = ['id', "created", "updated"]
