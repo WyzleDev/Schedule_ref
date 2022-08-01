@@ -8,6 +8,7 @@
 
 3. localhost:8000/api/v1/professor/<id> - Выдает конкретного преподавателя
 
-4. [localhost:8000/api/v1/news](localhost:8000/api/v1/news) - Выдает 3 последние новости опубликованых на сайте
+4. [localhost:8000/api/v1/news](localhost:8000/api/v1/news) - Выдает все новости опубликованых в админ панеле
+
 
 
