@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
+
 from schedule.models import Lesson, TimeTable, Professor
 from .serializers import *
 
