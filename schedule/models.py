@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.html import format_html
 from django.contrib.auth.models import User
 
 from django_admin_geomap import GeoItem
@@ -186,6 +187,16 @@ class Event(models.Model, GeoItem):
 
     longitude = models.DecimalField(
         max_digits=9, decimal_places=6, null=True, blank=True)
+
+    yandex_maps_url = models.URLField(
+        null=True, blank=True, verbose_name="Ссылка на яндекс карты")
+
+    def save(self):
+        if self.yandex_maps_url == None or self.yandex_maps_url == '':
+            self.yandex_maps_url = f'https://yandex.ru/maps/?pt={float(self.longitude)},{float(self.latitude)}&z=18&l=map'
+        else:
+            self.yandex_maps_url = self.yandex_maps_url
+        super(Event, self).save()
 
     @property
     def geomap_longitude(self):

@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+
 from django_admin_geomap import ModelAdmin
 from .models import *
 

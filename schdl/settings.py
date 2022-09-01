@@ -115,5 +115,3 @@ STATIC_ROOT = 'collected_static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-GOOGLE_MAPS_API_KEY = 'AIzaSyBYtoymK7p1fqq5JbzJQ6g1SLh7-Kqz2Fg'
